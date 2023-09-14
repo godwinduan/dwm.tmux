@@ -4,6 +4,10 @@ dwm.tmux
 
 ![](https://raw.githubusercontent.com/saysjonathan/dwm.tmux/master/screenshot.png)
 
+## What's new in this fork
+unified.tmux.conf contains the functionality of lib/dwm.tmux and bin/dwm.tmux
+It can be used directly as the .tmux.conf file
+
 ## Dependencies
 dwm.tmux requires tmux > 3.2.
 
