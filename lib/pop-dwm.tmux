@@ -1,4 +1,4 @@
-# For use with TTY terminals (will try to mimic dwm bindings exactly)
+# For use with Godwin's POP Shell keybinds
 
 # Godwin's personal tmux settings
 # https://www.hamvocke.com/blog/a-guide-to-customizing-your-tmux-conf/
@@ -35,16 +35,13 @@ set -g command-alias[118] window6='run-shell "dwm.tmux window 6"'
 set -g command-alias[119] window7='run-shell "dwm.tmux window 7"'
 set -g command-alias[120] window8='run-shell "dwm.tmux window 8"'
 set -g command-alias[121] window9='run-shell "dwm.tmux window 9"'
-set -g command-alias[122] swappane='run-shell "dwm.tmux swappane"'
 
 set-hook -g pane-exited 'run-shell "dwm.tmux layouttile"'
 
 #bind -n M-n newpane
-# Turns out TTY doesn't want to recognize M-S-Enter
 bind -n M-Enter newpanecurdir
-bind -n M-Space swappane
 bind -n C-w killpane
-bind -n M-C killpane
+bind -n M-c
 bind -n M-j nextpane
 bind -n M-k prevpane
 bind -n M-< rotateccw

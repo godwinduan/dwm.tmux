@@ -18,12 +18,17 @@ newpanecurdir() {
     split-window -t :.0 -c "#{pane_current_path}"\; \
     swap-pane -s :.0 -t :.1\; \
     select-layout main-vertical\; \
-    #resize-pane -t :.0 -x ${mfact}%
+    resize-pane -x 50%;
   return 0
 }
 
 killpane() {
   tmux kill-pane;
+  return 0
+}
+
+swappane() {
+  tmux swap-pane -t 0;
   return 0
 }
 
@@ -95,6 +100,7 @@ case $command in
   newpane) newpane;;
   newpanecurdir) newpanecurdir;;
   killpane) killpane;;
+  swappane) swappane;;
   nextpane) nextpane;;
   prevpane) prevpane;;
   rotateccw) rotateccw;;
