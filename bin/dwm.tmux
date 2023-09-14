@@ -2,14 +2,15 @@
 
 window_panes=
 killlast=
-mfact=
+#mfact=
 
 newpane() {
   tmux \
     split-window -t :.0\; \
     swap-pane -s :.0 -t :.1\; \
     select-layout main-vertical\; \
-    resize-pane -t :.0 -x ${mfact}%
+    #resize-pane -t :.0 -x ${mfact}%
+  return 0
 }
 
 newpanecurdir() {
@@ -17,70 +18,65 @@ newpanecurdir() {
     split-window -t :.0 -c "#{pane_current_path}"\; \
     swap-pane -s :.0 -t :.1\; \
     select-layout main-vertical\; \
-    resize-pane -t :.0 -x ${mfact}%
+    #resize-pane -t :.0 -x ${mfact}%
+  return 0
 }
 
 killpane() {
-  if [ $window_panes -gt 1 ]; then
-    tmux kill-pane -t :.\; \
-         select-layout main-vertical\; \
-         resize-pane -t :.0 -x ${mfact}%
-  else
-    if [ $killlast -ne 0 ]; then
-      tmux kill-window
-    fi
-  fi
+  tmux kill-pane;
+  return 0
 }
 
 nextpane() {
   tmux select-pane -t :.+
+  return 0
 }
 
 prevpane() {
   tmux select-pane -t :.-
+  return 0
 }
 
 rotateccw() {
-  tmux rotate-window -U\; select-pane -t 0
+  tmux rotate-window -U -t 0; 
+  return 0
 }
 
 rotatecw() {
-  tmux rotate-window -D\; select-pane -t 0
+  tmux rotate-window -D -t 0; 
+  return 0
 }
 
 zoom() {
-  tmux swap-pane -s :. -t :.0\; select-pane -t :.0
+  #tmux swap-pane -s :. -t :.0\; select-pane -t :.0
+  tmux resize-pane -Z;
+  return 0
 }
 
 layouttile() {
-  tmux select-layout main-vertical\; resize-pane -t :.0 -x ${mfact}%
+  tmux select-layout main-vertical\; #resize-pane -t :.0 -x ${mfact}%
+  return 0
 }
 
 float() {
   tmux resize-pane -Z
+  return 0
 }
 
 incmfact() {
-  fact=$((mfact + 5))
-  if [ $fact -le 95 ]; then
-    tmux \
-      setenv mfact $fact\; \
-      resize-pane -t :.0 -x ${fact}%
-  fi
+  tmux resize-pane -R 2
+  return 0
 }
 
 decmfact() {
-  fact=$((mfact - 5))
-  if [ $fact -ge 5 ]; then
-    tmux \
-      setenv mfact $fact\; \
-      resize-pane -t :.0 -x ${fact}%
-  fi
+  tmux resize-pane -L 2
+  return 0
 }
 
 window() {
   window=$1
   tmux selectw -t $window
+  return 0
 }
 
 if [ $# -lt 1 ]; then

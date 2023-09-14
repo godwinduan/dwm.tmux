@@ -29,16 +29,17 @@ set-hook -g pane-exited 'run-shell "dwm.tmux layouttile"'
 
 #bind -n M-n newpane
 bind -n M-Enter newpanecurdir
-bind -n C-c killpane
-bind -n M-J nextpane
-bind -n M-K prevpane
+bind -n C-w killpane
+bind -n M-c
+bind -n M-j nextpane
+bind -n M-k prevpane
 bind -n M-< rotateccw
 bind -n M-> rotatecw
 bind -n M-M zoom
 bind -n M-t layouttile
 #bind -n M-Space float
-bind -n M-H decmfact
-bind -n M-L incmfact
+bind -n M-h decmfact
+bind -n M-l incmfact
 #bind -n M-0 window0
 #bind -n M-1 window1
 #bind -n M-2 window2
