@@ -27,25 +27,26 @@ set -g command-alias[121] window9='run-shell "dwm.tmux window 9"'
 
 set-hook -g pane-exited 'run-shell "dwm.tmux layouttile"'
 
-bind -n M-n newpane
-bind -n M-w newpanecurdir
-bind -n M-c killpane
-bind -n M-j nextpane
-bind -n M-k prevpane
+#bind -n M-n newpane
+bind -n M-Enter newpanecurdir
+bind -n C-c killpane
+bind -n M-J nextpane
+bind -n M-K prevpane
 bind -n M-< rotateccw
 bind -n M-> rotatecw
-bind -n M-Enter zoom
+bind -n M-M zoom
 bind -n M-t layouttile
-bind -n M-Space float
-bind -n M-h decmfact
-bind -n M-l incmfact
-bind -n M-0 window0
-bind -n M-1 window1
-bind -n M-2 window2
-bind -n M-3 window3
-bind -n M-4 window4
-bind -n M-5 window5
-bind -n M-6 window6
-bind -n M-7 window7
-bind -n M-8 window8
-bind -n M-9 window9
+#bind -n M-Space float
+bind -n M-H decmfact
+bind -n M-L incmfact
+#bind -n M-0 window0
+#bind -n M-1 window1
+#bind -n M-2 window2
+#bind -n M-3 window3
+#bind -n M-4 window4
+#bind -n M-5 window5
+#bind -n M-6 window6
+#bind -n M-7 window7
+#bind -n M-8 window8
+#bind -n M-9 window9
+
